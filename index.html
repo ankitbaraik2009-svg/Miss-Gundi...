@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Miss Gundi! 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary: #ff3366;
+            --gold: #ffd700;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            --neon-glow: 0 0 10px rgba(255, 51, 102, 0.5), 0 0 20px rgba(255, 51, 102, 0.3);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0f0c29;
+            background: linear-gradient(to bottom, #000000, #240b36);
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Allura';
+            color: white;
+            user-select: none;
+        }
+
+        /* --- Ambient Aurora Background --- */
+        .aurora {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.4), transparent 60%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 51, 102, 0.2), transparent 50%);
+            animation: auroraMove 15s infinite alternate;
+            z-index: 0;
+            pointer-events: none;
+        }
+        @keyframes auroraMove {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(10deg) scale(1.1); }
+        }
+
+        /* --- Cinematic Grain --- */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* --- Layout --- */
+        .screen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+            z-index: 10;
+        }
+        .screen.active { display: flex; opacity: 1; }
+
+        /* --- High-End Glass Card --- */
+/* --- Realistic Floating Glass Card --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.5); /* Highlight on top */
+            border-left: 1px solid rgba(255, 255, 255, 0.5); /* Highlight on left */
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.05);
+            max-width: 90%;
+            width: 380px;
+            position: relative;
+            /* Floating Animation */
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h1, h2 {
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(to right, #fff, #ff3366);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(255, 51, 102, 0.5));
+        }
+
+        p { color: #ddd; font-size: 1.1rem; line-height: 1.6; }
+
+        /* --- Buttons --- */
+        .btn-group { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
+        
+/* --- Realistic 3D Buttons --- */
+/* --- Realistic Glowing 3D Buttons --- */
+        button {
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.2s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* The YES Button: Neon Pink Glow */
+        .btn-yes {
+            background: linear-gradient(to bottom, #ff3366, #d4003c);
+            color: white;
+            /* Layer 1: 3D Edge, Layer 2: Glow */
+            box-shadow: 
+                0 6px 0 #900028, 
+                0 0 15px rgba(255, 51, 102, 0.6),
+                0 0 30px rgba(255, 51, 102, 0.4);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-2px);
+            /* Intensify Glow on Hover */
+            box-shadow: 
+                0 8px 0 #900028,
+                0 0 25px rgba(255, 51, 102, 1),
+                0 0 50px rgba(255, 51, 102, 0.8);
+        }
+
+        .btn-yes:active {
+            transform: translateY(6px); /* Push down effect */
+            box-shadow: 
+                0 0 0 #900028, 
+                inset 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* The NO Button: Silver/White Glow */
+        .btn-no {
+            background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+            color: #444;
+            box-shadow: 
+                0 6px 0 #999,
+                0 0 15px rgba(255, 255, 255, 0.4);
+            z-index: 1000; /* Ensure it stays on top when moving */
+        }
+                /* --- Gift 1: The Cake --- */
+        .cake-container { width: 200px; height: 180px; margin: 30px auto; position: relative; }
+        .cake-body {
+            position: absolute; bottom: 0; width: 100%; height: 100px;
+            background: linear-gradient(to right, #5d4037, #4e342e);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .cake-body::before { /* Icing */
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 50px;
+            background: #ff80ab;
+            border-radius: 10px 10px 40px 40px;
+            background-image: radial-gradient(#fff 15%, transparent 16%);
+            background-size: 15px 15px;
+        }
+        .candle {
+            position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+            width: 12px; height: 50px;
+            background: repeating-linear-gradient(45deg, #fff, #fff 5px, #ff3366 5px, #ff3366 10px);
+            cursor: pointer;
+        }
+        .flame {
+            position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+            width: 14px; height: 20px;
+            background: radial-gradient(ellipse at bottom, #ffd700, #ff6b6b, transparent);
+            border-radius: 50% 50% 20% 20%;
+            filter: blur(1px);
+            animation: flicker 0.1s infinite alternate;
+            box-shadow: 0 0 20px #ffd700;
+        }
+        .smoke {
+            position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+            width: 10px; height: 40px; opacity: 0;
+        }
+        .smoke.active {
+            background: linear-gradient(to top, rgba(255,255,255,0.8), transparent);
+            filter: blur(5px);
+            animation: smokeRise 2s forwards;
+        }
+        @keyframes flicker { from { transform: translateX(-50%) scale(1); opacity: 0.9; } to { transform: translateX(-50%) scale(1.1); opacity: 1; } }
+        @keyframes smokeRise { to { transform: translateX(-50%) translateY(-50px); opacity: 0; } }
+
+        /* --- Gift 2: Balloon Pop (NEW) --- */
+        .balloon-stage {
+            height: 250px; display: flex; justify-content: center; align-items: flex-end; gap: 15px;
+            position: relative; perspective: 500px;
+        }
+        .balloon {
+            width: 60px; height: 80px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            cursor: pointer;
+            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1), 5px 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            transition: transform 0.2s;
+            animation: floatBalloon 3s ease-in-out infinite alternate;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 10px; color: transparent; /* Text hidden until pop */
+        }
+        .balloon::after { /* String */
+            content: ''; position: absolute; bottom: -20px; left: 50%; width: 1px; height: 20px; background: rgba(255,255,255,0.5);
+        }
+        .balloon:active { transform: scale(0.9); }
+        .b-red { background: radial-gradient(circle at 30% 30%, #ff8a80, #d50000); animation-delay: 0s; }
+        .b-gold { background: radial-gradient(circle at 30% 30%, #ffff8d, #ffd600); animation-delay: 1s; }
+        .b-purple { background: radial-gradient(circle at 30% 30%, #ea80fc, #aa00ff); animation-delay: 0.5s; }
+        
+        .pop-msg {
+            position: absolute; top: 0; width: 100%; text-align: center;
+            font-size: 1.2rem; color: #ffd700; font-weight: bold;
+            opacity: 0; transform: translateY(20px); transition: all 0.5s;
+        }
+        @keyframes floatBalloon { from { transform: translateY(0); } to { transform: translateY(-15px); } }
+
+        /* --- Gift 3: Flowers --- */
+        .flower-pot { display: flex; justify-content: center; gap: 20px; height: 150px; align-items: flex-end; }
+        .flower { font-size: 4rem; transform: scale(0); transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .flower.bloom { transform: scale(1); animation: sway 3s ease-in-out infinite alternate; }
+        @keyframes sway { from { transform: rotate(-5deg); } to { transform: rotate(5deg); } }
+
+        /* --- Gift 4: Lanterns (NEW) --- */
+        .sky-stage { height: 250px; width: 100%; position: relative; overflow: hidden; border-radius: 10px; background: rgba(0,0,0,0.2); }
+        .lantern {
+            position: absolute; bottom: -50px; width: 30px; height: 45px;
+            background: linear-gradient(to bottom, #ffeb3b, #ff9800);
+            border-radius: 5px;
+            box-shadow: 0 0 15px #ff9800;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        .lantern-btn { margin-top: 10px; }
+
+/* --- Gift 5: The Grand Carousel --- */
+        #gallery-view {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, #2b1018 0%, #000000 100%);
+            z-index: 100;
+            perspective: 1000px; /* Essential for 3D */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .carousel {
+            position: relative;
+            width: 200px; /* Width of one photo */
+            height: 300px; /* Height of one photo */
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            /* This animation makes it spin */
+            animation: spinCarousel 20s infinite linear;
+        }
+
+        /* Pause rotation when hovering or clicking so she can read */
+        .carousel:hover, .carousel:active {
+            animation-play-state: paused;
+        }
+
+        @keyframes spinCarousel {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        .card-container {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            /* Initial state: bunched together */
+            transform: rotateY(0deg) translateZ(0px);
+            transition: all 2s ease-out; /* The "Coming out" speed */
+        }
+
+        /* When the gallery opens, this class is added to spread them out */
+        .carousel.open .card-container {
+            transform: rotateY(calc(var(--i) * 60deg)) translateZ(350px);
+        }
+
+        /* --- The Flip Effect (Click & Hold) --- */
+        .card-inner {
+            position: relative;
+            width: 100%; height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.5);
+        }
+
+        /* The Flip Action */
+        .card-container:active .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%; height: 100%;
+            backface-visibility: hidden; /* Hides the back when facing front */
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-front {
+            background: white;
+            padding: 5px; 
+        }
+        .card-front img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #ff3366, #ff5e85);
+            color: white;
+            transform: rotateY(180deg); /* Start facing away */
+            padding: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            flex-direction: column;
+            border: 2px solid white;
+        }
+
+        /* Utilities */
+        .next-btn { margin-top: 20px; opacity: 0; pointer-events: none; transform: translateY(10px); transition: all 0.5s; }
+        .next-btn.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
+        .confetti { position: absolute; width: 8px; height: 8px; background: gold; animation: fall 3s linear forwards; }
+        @keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+
+        .snow-container { position: fixed; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .snowflake { position: absolute; top: -10px; color: white; opacity: 0.6; animation: snowFall linear infinite; }
+        @keyframes snowFall { to { transform: translateY(105vh); } }
+
+    </style>
+</head>
+<body>
+
+    <div class="aurora"></div>
+    <div class="overlay"></div>
+    <div class="snow-container" id="snow-container"></div>
+    
+    <audio id="bgMusic" loop>
+        <source src="https://github.com/ankitbaraik2009-svg/..../raw/refs/heads/main/s.mp3" type="audio/mp3"> 
+    </audio>
+    <div style="position:fixed; bottom:20px; right:20px; z-index:100; opacity:0.7; cursor:pointer; font-size:24px;" onclick="toggleMusic()">🎵</div>
+
+    <div id="screen-1" class="screen active">
+        <div class="glass-card">
+            <h1>Happy Birthday<br>Miss Gundi! 💖</h1>
+            <p>
+                "Tere bina adhura hain mera ye sara jahan-o-saab,<br>
+                tujhse se hi roshan meri har subah aur har shab.<br>
+                tujhe har khusi mile bas yehi hain ak talab ,<br>
+                wishing you a very very Happy Birthday My Love!"
+            </p>
+            <div class="btn-group">
+                <button class="btn-yes" onclick="nextScreen(1, 2)">Start The Surprise 🎉</button>
+                <button class="btn-no" id="runaway-btn" onmouseover="moveButton()" ontouchstart="moveButton()">No 😜</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="screen-2" class="screen">
+        <div class="glass-card">
+            <h2>Make a Wish ✨</h2>
+            <p>Close your eyes, make a wish, and tap the flame.</p>
+            <div class="cake-container">
+                <div class="cake-body"></div>
+                <div class="candle" onclick="blowCandle()">
+                    <div class="flame" id="flame"></div>
+                    <div class="smoke" id="smoke"></div>
+                </div>
+            </div>
+            <button class="next-btn" id="btn-2" onclick="nextScreen(2, 3)">Wish Made! 🎁</button>
+        </div>
+    </div>
+
+    <div id="screen-3" class="screen">
+        <div class="glass-card">
+            <h2>Pop for Compliments 🎈</h2>
+            <p>Tap the balloons to see what makes you special.</p>
+            
+            <div class="balloon-stage">
+                <div class="pop-msg" id="pop-msg">Pop them all!</div>
+                <div class="balloon b-red" onclick="popBalloon(this, 'You are Beautiful! 😍')"></div>
+                <div class="balloon b-gold" onclick="popBalloon(this, 'You are Strong! 💪')"></div>
+                <div class="balloon b-purple" onclick="popBalloon(this, 'You are Loved! ❤️')"></div>
+            </div>
+
+            <button class="next-btn" id="btn-3" onclick="nextScreen(3, 4)">Next Surprise 🎁</button>
+        </div>
+    </div>
+
+    <div id="screen-4" class="screen">
+        <div class="glass-card">
+            <h2>Blooming For You 🌸</h2>
+            <p>Just like these flowers, you make life beautiful.</p>
+            <div class="flower-pot">
+                <div class="flower" id="f1">🌼</div>
+                <div class="flower" id="f2">🍁</div>
+                <div class="flower" id="f3">🌹</div>
+            </div>
+            <button class="next-btn" id="btn-4" onclick="nextScreen(4, 5)">One More Gift... 🎁</button>
+        </div>
+    </div>
+
+    <div id="screen-5" class="screen">
+        <div class="glass-card">
+            <h2>Light Up The Sky 🏮</h2>
+            <p>Release positive vibes into the universe.</p>
+            
+            <div class="sky-stage" id="sky-stage">
+                </div>
+            
+            <button class="btn-yes lantern-btn" onclick="releaseLantern()">Release Lantern ✨</button>
+            <button class="next-btn" id="btn-5" onclick="nextScreen(5, 6)">The Grand Finale 💖</button>
+        </div>
+    </div>
+
+<div id="screen-6" class="screen">
+        <div class="glass-card" id="box-stage">
+            <h2>The Final Surprise</h2>
+            <p>Tap the box to unlock my heart...</p>
+            <div class="scene" onclick="openBox()">
+                <div class="cube">
+                    <div class="cube__face f-front">💖</div>
+                    <div class="cube__face f-back">💖</div>
+                    <div class="cube__face f-right">💖</div>
+                    <div class="cube__face f-left">💖</div>
+                    <div class="cube__face f-top">🎁</div>
+                    <div class="cube__face f-bottom"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-view">
+        <h1 style="position: absolute; top: -3%; width: 100%; text-align: center; z-index: 10;">
+            Hold a photo to read my mind... 💖
+        </h1>
+        
+        <div class="carousel" id="carousel">
+            <div class="card-container" style="--i:1;">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/user-attachments/assets/2e258a59-8855-432e-be71-fe4a7bf0e277" alt="Her Photo">
+                    </div>
+                    <div class="card-back">
+                        <p>"Are you a magician?<br>Because whenever I look at you, everyone else disappears."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container" style="--i:2;">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/user-attachments/assets/c814c2ce-3c31-419a-be6e-ccf704cc775f" alt="Her Photo">
+                    </div>
+                    <div class="card-back">
+                        <p>"Is your name Google?<br>Because you have everything I've been searching for."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container" style="--i:3;">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/user-attachments/assets/cc6835ba-6e5f-4f21-a9c3-e8e60bb153d5" alt="Her Photo">
+                    </div>
+                    <div class="card-back">
+                        <p>"Do you have a map?<br>I keep getting lost in your eyes."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container" style="--i:4;">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/user-attachments/assets/67168784-d394-4b18-a1a4-14335117e68e" alt="Her Photo">
+                    </div>
+                    <div class="card-back">
+                        <p>"My doctor says I'm lacking Vitamin U." 😉</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container" style="--i:5;">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/user-attachments/assets/1a91c94c-1a5d-4d95-82a7-ae0df34091d1" alt="Her Photo">
+                    </div>
+                    <div class="card-back">
+                        <p>"If I could rearrange the alphabet, I'd put U and I together." </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container" style="--i:6;">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://github.com/user-attachments/assets/07a026b4-4a5e-4012-8f0a-54fa4f47c98e" alt="Her Photo">
+                    </div>
+                    <div class="card-back">
+                        <p>"Your smile must be illegal... it's dangerously beautiful."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-yes" style="position: absolute; bottom: 10%;" onclick="location.reload()">Replay Love Story ↺</button>
+    </div>
+
+    <script>
+        // --- Music Control ---
+        function toggleMusic() {
+            const audio = document.getElementById('bgMusic');
+            if(audio.paused) audio.play();
+            else audio.pause();
+        }
+
+        // --- Navigation Logic ---
+        function nextScreen(current, next) {
+            if(current === 1) document.getElementById('bgMusic').play().catch(() => {});
+
+            const c = document.getElementById(`screen-${current}`);
+            const n = document.getElementById(`screen-${next}`);
+            
+            c.style.opacity = 0;
+            setTimeout(() => {
+                c.classList.remove('active');
+                n.classList.add('active');
+                setTimeout(() => n.style.opacity = 1, 50);
+
+                if(next === 4) bloomFlowers();
+            }, 800);
+        }
+
+// --- Logic: Smart Runaway Button (Keeps inside screen) ---
+        function moveButton() {
+            const btn = document.getElementById('runaway-btn');
+            
+            // 1. Get the current screen width and height
+            const screenW = window.innerWidth;
+            const screenH = window.innerHeight;
+
+            // 2. Get the button's own dimensions (so we don't push it off)
+            const btnW = btn.offsetWidth;
+            const btnH = btn.offsetHeight;
+
+            // 3. Calculate the maximum safe position 
+            // (Screen - Button Size - 20px padding for safety)
+            const maxX = screenW - btnW - 20;
+            const maxY = screenH - btnH - 20;
+
+            // 4. Generate random X and Y within those safe limits
+            // Math.max(0, ...) ensures we don't get negative numbers
+            const randomX = Math.max(10, Math.random() * maxX);
+            const randomY = Math.max(10, Math.random() * maxY);
+
+            // 5. Apply the new position
+            btn.style.position = 'fixed'; // Makes it relative to the screen view
+            btn.style.left = randomX + 'px';
+            btn.style.top = randomY + 'px';
+        }
+                // --- Logic: Candle ---
+        function blowCandle() {
+            const flame = document.getElementById('flame');
+            const smoke = document.getElementById('smoke');
+            if(flame.style.display === 'none') return;
+
+            flame.style.display = 'none';
+            smoke.classList.add('active');
+            createConfetti();
+            document.getElementById('btn-2').classList.add('visible');
+        }
+
+        // --- Logic: Balloon Pop (New) ---
+        let balloonsPopped = 0;
+        function popBalloon(el, msg) {
+            if(el.style.opacity === '0') return;
+            
+            el.style.transform = "scale(1.5)";
+            el.style.opacity = "0"; // Poof
+            
+            // Show Message
+            const msgBox = document.getElementById('pop-msg');
+            msgBox.innerText = msg;
+            msgBox.style.opacity = 1;
+            msgBox.style.transform = "translateY(0)";
+
+            balloonsPopped++;
+            createConfetti();
+
+            if(balloonsPopped === 3) {
+                setTimeout(() => {
+                    document.getElementById('btn-3').classList.add('visible');
+                    msgBox.innerText = "You are perfect! ✨";
+                }, 1000);
+            }
+        }
+
+        // --- Logic: Flowers ---
+        function bloomFlowers() {
+            const flowers = document.querySelectorAll('.flower');
+            flowers.forEach((f, i) => {
+                setTimeout(() => f.classList.add('bloom'), i * 500);
+            });
+            setTimeout(() => document.getElementById('btn-4').classList.add('visible'), 2000);
+        }
+
+        // --- Logic: Lanterns (New) ---
+        let lanternsReleased = 0;
+        function releaseLantern() {
+            const stage = document.getElementById('sky-stage');
+            const l = document.createElement('div');
+            l.classList.add('lantern');
+            l.style.left = Math.random() * 80 + 10 + "%";
+            l.style.transition = "all 5s linear";
+            stage.appendChild(l);
+
+            // Animate up
+            setTimeout(() => {
+                l.style.bottom = "300px";
+                l.style.opacity = "0";
+            }, 50);
+
+            lanternsReleased++;
+            if(lanternsReleased > 2) {
+                document.getElementById('btn-5').classList.add('visible');
+            }
+        }
+
+// --- Logic: Final Box ---
+        function openBox() {
+            // 1. Hide the box stage
+            const boxStage = document.getElementById('box-stage');
+            boxStage.style.transition = "opacity 0.5s";
+            boxStage.style.opacity = 0;
+            
+            setTimeout(() => {
+                boxStage.style.display = 'none';
+                
+                // 2. Show the gallery container
+                const gallery = document.getElementById('gallery-view');
+                gallery.style.display = 'flex';
+                
+                // 3. Trigger the "Expansion" animation
+                // We use a small timeout to let the display:flex render first
+                setTimeout(() => {
+                    document.getElementById('carousel').classList.add('open');
+                }, 100);
+
+                createConfetti(); // Celebration!
+            }, 500);
+        }
+        // --- Utilities: Snow & Confetti ---
+        setInterval(() => {
+            const snow = document.createElement('div');
+            snow.classList.add('snowflake');
+            snow.textContent = Math.random() > 0.5 ? '❄' : '✨';
+            snow.style.left = Math.random() * 100 + 'vw';
+            snow.style.fontSize = Math.random() * 10 + 10 + 'px';
+            snow.style.animationDuration = Math.random() * 5 + 5 + 's';
+            document.getElementById('snow-container').appendChild(snow);
+            setTimeout(() => snow.remove(), 10000);
+        }, 300);
+
+        function createConfetti() {
+            for(let i=0; i<30; i++) {
+                const c = document.createElement('div');
+                c.classList.add('confetti');
+                c.style.left = Math.random() * 100 + 'vw';
+                c.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
+                document.body.appendChild(c);
+                setTimeout(() => c.remove(), 3000);
+            }
+        }
+    </script>
+</body>
+</html>
